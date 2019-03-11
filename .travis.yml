@@ -1,10 +1,14 @@
-language: c
+language: generic
 os: osx
-compiler: clang
-osx_image: xcode10.1
+
+matrix:
+  include:
+    - osx_image: xcode10.2 # MacOS Mojave
+    - osx_image: xcode10.1 # MacOS High Sierra
+    - osx_image: xcode9.2  # MacOS Sierra
 
 before_install:
-  - softwareupdate --install -a
+  - travis_wait 30 softwareupdate -i -a
   - sudo chown -R "$USER" "$(brew --repo)"
   - travis_retry brew update
   - HOMEBREW_TAP_DIR="$(brew --repo "$TRAVIS_REPO_SLUG")"
@@ -14,5 +18,7 @@ before_install:
 
 script:
   - brew test-bot
-  - brew install Formula/scipoptsuite.rb
+  - travis_wait 30 brew install --build-bottle Formula/scipoptsuite.rb
+  - travis_wait 30 brew install --build-bottle Formula/yap.rb --HEAD
   - brew test Formula/scipoptsuite.rb
+  - brew test Formula/yap.rb
