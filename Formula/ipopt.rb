@@ -1,8 +1,8 @@
 class Ipopt < Formula
   desc "Interior Point OPTimizer"
-  homepage "https://projects.coin-or.org/Ipopt"
-  url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.10.tgz"
-  sha256 "e1a3ad09e41edbfe41948555ece0bdc78757a5ca764b6be5a9a127af2e202d2e"
+  homepage "https://github.com/coin-or/Ipopt"
+  url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.13.tgz"
+  sha256 "aac9bb4d8a257fdfacc54ff3f1cbfdf6e2d61fb0cf395749e3b0c0664d3e7e96"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
