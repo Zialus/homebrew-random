@@ -1,16 +1,18 @@
 class Scipoptsuite < Formula
   desc "Solving Constraint Integer Programs"
-  homepage "https://scip.zib.de/"
-  url "https://scip.zib.de/download/release/scipoptsuite-6.0.2.tgz"
-  sha256 "e25329a2ed4fbdde8a32279a4c955ee7a8b8795429b6e7105ae17998c2ecbe66"
+  homepage "https://scipopt.org"
+  url "https://www.scipopt.org/download/release/scipoptsuite-7.0.1.tgz"
+  sha256 "971962f2d896b0c8b8fa554c18afd2b5037092685735d9494a05dc16d56ad422"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
   depends_on "bliss"
+  depends_on "boost"
   depends_on "gmp"
   depends_on "ipopt"
   depends_on "readline"
+  depends_on "tbb"
 
   def install
     args = std_cmake_args + %W[
